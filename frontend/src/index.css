@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gradient-to-br from-purple-50 via-white to-pink-50 text-purple-900;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(147,51,234,0.06), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(251,146,60,0.04), transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(236,72,153,0.03), transparent 50%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+}
+
+.nav-pill {
+  @apply rounded-full px-6 py-2.5 text-sm font-bold text-purple-700 transition-all duration-200 ease-out hover:bg-purple-100 hover:shadow-md;
+}
+
+.nav-pill-active {
+  @apply rounded-full bg-purple-600 text-white shadow-lg;
+}
+
+/* Enhanced Material-UI Components */
+.MuiInputBase-root {
+  border-radius: 1.25rem;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(196,181,253,0.4);
+  border-width: 2px;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(147,51,234,0.6);
+  border-width: 2px;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(147,51,234,1);
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+}
+
+.MuiButton-root {
+  text-transform: none;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.MuiTypography-h1,
+.MuiTypography-h2,
+.MuiTypography-h3,
+.MuiTypography-h4,
+.MuiTypography-h5,
+.MuiTypography-h6 {
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.MuiTypography-h1 {
+  line-height: 1.1;
+}
+
+.MuiTypography-h2 {
+  line-height: 1.15;
+}
+
+.MuiTypography-h3 {
+  line-height: 1.2;
+}
+
+.MuiTypography-body1 {
+  line-height: 1.6;
+}
+
+.MuiTypography-body2 {
+  line-height: 1.5;
+}
+
+.MuiAlert-root {
+  border-radius: 1.5rem;
+  border-width: 2px;
+  font-weight: 600;
+}
+
+/* Purple and Orange theme accents */
+.MuiChip-root {
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+/* Enhanced shadows for depth */
+.shadow-elevated {
+  box-shadow: 0 25px 80px -40px rgba(147, 51, 234, 0.4);
+}
+
+.shadow-professional {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(147, 51, 234, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(147, 51, 234, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 51, 234, 0.5);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
