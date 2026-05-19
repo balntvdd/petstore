@@ -11,7 +11,7 @@ services:
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
           name: petstore-db
-          property: url
+          property: connectionString
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: petstore-db
