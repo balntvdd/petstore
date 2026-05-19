@@ -1,0 +1,47 @@
+services:
+  - type: web
+    name: petstore-api
+    plan: free
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: petstore-db
+          property: url
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: petstore-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: petstore-db
+          property: password
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: validate
+
+  - type: web
+    name: petstore-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: petstore-api
+          envVarKey: RENDER_EXTERNAL_URL
+
+databases:
+  - name: petstore-db
+    plan: free
+    databaseName: petstore
+    user: petstore
