@@ -8,10 +8,6 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
-      - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: petstore-db
-          property: connectionString
       - key: SPRING_DATASOURCE_HOST
         fromDatabase:
           name: petstore-db
