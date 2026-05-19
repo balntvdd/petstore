@@ -8,18 +8,10 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
-      - key: SPRING_DATASOURCE_HOST
+      - key: SPRING_DATASOURCE_URL
         fromDatabase:
           name: petstore-db
-          property: host
-      - key: SPRING_DATASOURCE_PORT
-        fromDatabase:
-          name: petstore-db
-          property: port
-      - key: SPRING_DATASOURCE_DATABASE
-        fromDatabase:
-          name: petstore-db
-          property: database
+          property: connectionString
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: petstore-db
@@ -30,6 +22,8 @@ services:
           property: password
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: validate
+      - key: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+        value: org.hibernate.dialect.PostgreSQL10Dialect
 
   - type: web
     name: petstore-web
