@@ -25,7 +25,7 @@ services:
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: validate
       - key: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
-        value: org.hibernate.dialect.PostgreSQL10Dialect
+        value: org.hibernate.dialect.PostgreSQLDialect
 
   - type: web
     name: petstore-web
