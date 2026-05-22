@@ -21,7 +21,7 @@ services:
       - key: SPRING_DATASOURCE_DRIVER_CLASS_NAME
         value: org.postgresql.Driver
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
-        value: validate
+        value: update
 
   - type: web
     name: petstore-web
