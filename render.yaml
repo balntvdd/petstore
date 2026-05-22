@@ -9,9 +9,7 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
       - key: SPRING_DATASOURCE_URL
-        fromDatabase:
-          name: petstore-db
-          property: connectionString
+        value: jdbc:postgresql://dpg-d8665qdckfvc73edoik0-a:5432/petstore_g4dw
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: petstore-db
@@ -24,8 +22,6 @@ services:
         value: org.postgresql.Driver
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: validate
-      - key: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
-        value: org.hibernate.dialect.PostgreSQLDialect
 
   - type: web
     name: petstore-web
